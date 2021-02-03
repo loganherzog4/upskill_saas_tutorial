@@ -1,1 +1,12 @@
-<%= @user.inspect %>
+<%= @user.profile.first_name %>
+<%= @user.profile.job_title %>
+<% if current_user.plan_id == 2 %>
+    <%= @user.profile.phone_number %>
+    <%= @user.profile.contact_email %>
+<% end %>
+
+<!-- Commenting but keeping this for later - this is how to allow profile owners to see certain things on their own profile page.
+if current_user.id == @user.id %>
+    You are the profile owner.
+else
+end -->
