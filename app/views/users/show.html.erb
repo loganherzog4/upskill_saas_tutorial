@@ -10,7 +10,10 @@
                 <%= @user.profile.last_name %>
             </h1>
             
-            <h2><%= @user.profile.job_title %></h2>
+            <h2>
+                <span class="job-title-icon"><%= job_title_icon %></span>
+                <%= @user.profile.job_title %>
+            </h2>
             
             <div class="well profile-block profile-description">
                 <h3>Description</h3>
