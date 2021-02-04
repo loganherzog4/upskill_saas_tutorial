@@ -34,6 +34,25 @@ class ProfilesController < ApplicationController
         
     end
     
+    # PUT request to users/:user_id/profile
+    def update
+        
+        # Retrieve the user from the database.
+        @user = User.find(params[:user_id])
+        
+        # Retrieve that user's profile.
+        @profile = @user.profile
+        
+        # Mass assign edited profile attributes and save/update.
+        if @profile.update_attributes(profile_params)
+            flash[:success] = "Profile updated!"
+            redirect_to user_path(params[:user_id])
+        else
+            render action: :edit
+        end
+        
+    end
+    
     private
         # To collect data from form, we need to use strong parameters and whitelist the form fields.
         def profile_params
