@@ -1,5 +1,8 @@
 class ProfilesController < ApplicationController
     
+    before_action :authenticate_user!
+    before_action :only_current_user
+    
     # GET request to /users/:user_id/profile/new.
     def new
         
@@ -23,15 +26,12 @@ class ProfilesController < ApplicationController
         else
             render action: :new
         end
-        
     end
     
     # GET request to /users/:user_id/profile/edit
     def edit
-        
         @user = User.find(params[:user_id])
         @profile = @user.profile
-        
     end
     
     # PUT request to users/:user_id/profile
@@ -50,13 +50,18 @@ class ProfilesController < ApplicationController
         else
             render action: :edit
         end
-        
     end
     
     private
+    
         # To collect data from form, we need to use strong parameters and whitelist the form fields.
         def profile_params
             params.require(:profile).permit(:first_name, :last_name, :avatar, :job_title, :phone_number, :contact_email, :description)
+        end
+        
+        def only_current_user
+            @user = User.find(params[:user_id])
+            redirect_to(root_path) unless @user == current_user
         end
     
 end
