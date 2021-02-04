@@ -42,3 +42,14 @@
    background: -o-linear-gradient(left, #0072ff, #00c6ff);
    background: linear-gradient(to right, #0072ff, #00c6ff);  /* Chrome 10-25, Safari 5.1-6 */ /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
+
+// User index page styles
+.user-index-avatar {
+    width: 128px;
+    height: 128px;
+    border-radius: 50%;
+}
+
+.well.white-bg {
+    background-color: white;
+}
