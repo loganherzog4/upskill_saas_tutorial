@@ -16,13 +16,17 @@
             </h2>
             
             <div class="well profile-block profile-description">
-                <h3>Description</h3>
+                <h3><u>Description</u></h3>
                 <%= @user.profile.description %>
             </div>
             
             <% if current_user.plan_id == 2 %>
                 <div class="well profile-block profile-contact-info">
-                    <h3>Contact Information (Pro Feature)</h3>
+                    <h3>
+                        <u>Contact Information</u>
+                        <span class="label label-danger">PRO</span>
+                    </h3>
+                    
                     <%= @user.profile.phone_number %><br>
                     <%= @user.profile.contact_email %><br>
                 </div>
