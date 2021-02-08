@@ -15,18 +15,14 @@
                     <br>
                     
                     <% if current_user.profile %>
-                        <%= link_to edit_user_profile_path(user_id: current_user.id) do %>
-                            <div class="btn btn-default btn-lg btn-block">
-                                <i class="fa fa-edit"></i> Edit your profile
-                            </div>
+                        <%= link_to edit_user_profile_path(user_id: current_user.id), class: 'btn btn-default btn-lg btn-block' do %>
+                            <i class="fa fa-edit"></i> Edit your profile
                         <% end %>
                         
                         <br>
                         
-                        <%= link_to user_path(id: current_user.id) do %>
-                            <div class="btn btn-default btn-lg btn-block">
-                                <i class="fa fa-eye"></i> View your profile
-                            </div>
+                        <%= link_to user_path(id: current_user.id), class: 'btn btn-default btn-lg btn-block' do %>
+                            <i class="fa fa-eye"></i> View your profile
                         <% end %>
                     <% else %>
                         <p class="text-center">Create your profile so that you can share your information with the community.</p>
@@ -40,10 +36,8 @@
                     <h2 class="text-center"><i class="fa fa-group"></i> The Community</h2>
                     <p class="text-center">Visit the community to meet other developers, entrepreneurs, and investors!</p>
                     
-                    <%= link_to users_path do %>
-                        <div class="btn btn-default btn-lg btn-block">
-                            Visit the community <i class="fa fa-arrow-circle-right"></i>
-                        </div>
+                    <%= link_to users_path, class: 'btn btn-default btn-lg btn-block' do %>
+                        Visit the community <i class="fa fa-arrow-circle-right"></i>
                     <% end %>
                 </div>
             </div>
