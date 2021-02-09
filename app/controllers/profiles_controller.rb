@@ -19,6 +19,7 @@ class ProfilesController < ApplicationController
         
         # Create profile linked to this specific user.
         @profile = @user.build_profile(profile_params)
+        @profile.verified = false
         
         if @profile.save
             flash[:success] = "Profile updated."

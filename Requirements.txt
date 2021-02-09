@@ -20,3 +20,11 @@ User Profiles
 * User should be able to create and view their user profile.
 * User profile should have a profile picture.
 * User should be able to view all user profiles.
+
+Admin Verification
+* User profile should have a new column in database to denote if it is verified.
+* Verified = 0 when a user profile is created.
+* Verified = 1 when I verify the profile.
+* Community view will only show verified profiles.
+* New view for myself that shows me unverified profiles in blocks like the
+    current community view, but only I can access the URL.
