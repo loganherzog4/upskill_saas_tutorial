@@ -21,12 +21,10 @@
         <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
     </div>
     
-    <div class="text-center">
+    <div class="form-group">
         <%= flash[:recaptcha_error] %>
         <%= recaptcha_tags %>
     </div>
-    
-    <br>
     
     <div class="actions form-group">
         <%= f.submit "Sign up", class: 'btn btn-success' %>

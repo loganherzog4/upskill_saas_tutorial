@@ -23,6 +23,11 @@
               <%= f.label :remember_me %>
             </div>
           <% end -%>
+          
+          <div class="form-group">
+            <%= flash[:recaptcha_error] %>
+            <%= recaptcha_tags %>
+          </div>
         
           <div class="actions form-group">
             <%= f.submit "Log in", class: 'btn btn-success' %>
