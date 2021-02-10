@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :users do
     resource :profile
   end
+  patch '/users/:id/verify', :to => 'users#verify'
   get '/about', to: 'pages#about'
   resources :contacts, only: :create
   get 'contact-us', to: 'contacts#new', as: 'new_contact'

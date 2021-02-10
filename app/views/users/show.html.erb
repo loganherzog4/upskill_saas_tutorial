@@ -36,8 +36,13 @@
                 
                 <% if current_user.id == 1 %>
                     <div class="well text-center">
-                        <button class="btn btn-success" onclick="verifyUser()"><i class="fa fa-check-circle"></i></button>
-                        <button class="btn btn-danger" onclick="deleteUser()"><i class="fa fa-times-circle"></i></button>
+                        <%= link_to '/users/:id/verify', class: 'btn btn-success' do %>
+                            <i class="fa fa-check-circle"></i>
+                        <% end %>
+                        
+                        <%= link_to '/users/:user_id/profile', class: 'btn btn-danger' do %>
+                            <i class="fa fa-times-circle"></i>
+                        <% end %>
                     </div>
                 <% end %>
             </div>

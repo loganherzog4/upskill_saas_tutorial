@@ -11,4 +11,11 @@ class UsersController < ApplicationController
         @user = User.find(params[:id])
     end
     
+    # PATCH request to /users/:id/verify
+    def verify
+        @user = User.find(params[:id])
+        @profile = User.profile
+        @profile.verified = true
+    end
+    
 end
