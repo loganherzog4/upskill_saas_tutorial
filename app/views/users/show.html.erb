@@ -1,36 +1,50 @@
 <div class="container">
     <div class="row">
-        <div class="col-md-3 text-center">
-            <%= image_tag @user.profile.avatar.url, class: 'avatar-show-img' %>
-        </div>
         
-        <div class="col-md-6">
-            <h1>
-                <%= @user.profile.first_name %>
-                <%= @user.profile.last_name %>
-            </h1>
-            
-            <h2>
-                <span class="job-title-icon"><%= job_title_icon %></span>
-                <%= @user.profile.job_title %>
-            </h2>
-            
-            <div class="well profile-block profile-description">
-                <h3><u>Description</u></h3>
-                <%= @user.profile.description %>
+        <% if @user.profile.verified or current_user.id == 1 %>
+            <div class="col-md-3 text-center">
+                <%= image_tag @user.profile.avatar.url, class: 'avatar-show-img' %>
             </div>
             
-            <% if current_user.plan_id == 2 %>
-                <div class="well profile-block profile-contact-info">
-                    <h3>
-                        <u>Contact Information</u>
-                        <span class="label label-danger">PRO</span>
-                    </h3>
-                    
-                    <%= @user.profile.phone_number %><br>
-                    <%= @user.profile.contact_email %><br>
+            <div class="col-md-6">
+                <h1>
+                    <%= @user.profile.first_name %>
+                    <%= @user.profile.last_name %>
+                </h1>
+                
+                <h2>
+                    <span class="job-title-icon"><%= job_title_icon %></span>
+                    <%= @user.profile.job_title %>
+                </h2>
+                
+                <div class="well profile-block profile-description">
+                    <h3><u>Description</u></h3>
+                    <%= @user.profile.description %>
                 </div>
-            <% end %>
-        </div>
+                
+                <% if current_user.plan_id == 2 %>
+                    <div class="well profile-block profile-contact-info">
+                        <h3>
+                            <u>Contact Information</u>
+                            <span class="label label-danger">PRO</span>
+                        </h3>
+                        
+                        <%= @user.profile.phone_number %><br>
+                        <%= @user.profile.contact_email %><br>
+                    </div>
+                <% end %>
+                
+                <% if current_user.id == 1 %>
+                    <div class="well text-center">
+                        <button class="btn btn-success" onclick="verifyUser()"><i class="fa fa-check-circle"></i></button>
+                        <button class="btn btn-danger" onclick="deleteUser()"><i class="fa fa-times-circle"></i></button>
+                    </div>
+                <% end %>
+            </div>
+        <% else %>
+            <div class="well text-center">
+                <h2>Please wait...this profile is currently being reviewed by the admin for verification.</h2>
+            </div>
+        <% end %>
     </div>
 </div>

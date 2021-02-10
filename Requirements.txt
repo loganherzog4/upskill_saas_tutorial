@@ -26,5 +26,6 @@ Admin Verification
 * Verified = false when a user profile is created.
 * Verified = true when I verify the profile.
 * Community view will only show verified profiles.
+* New users creating profiles will send me an email alert.
 * New view for myself that shows me unverified profiles in blocks like the
     current community view, but only I can access the URL.
