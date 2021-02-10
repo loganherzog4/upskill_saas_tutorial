@@ -32,8 +32,8 @@
                 <% if user_signed_in? %>
                     <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: 'btn btn-default navbar-btn' %>
                     
-                    <% if current_user.profile.avatar %>
-                      <%= image_tag current_user.profile.avatar.url, class: 'avatar-nav-img' %>
+                    <% if #current_user.profile.avatar %>
+                      <%= #image_tag current_user.profile.avatar.url, class: 'avatar-nav-img' %>
                     <% end %>
                 <% else %>
                     <%= link_to "Log In", new_user_session_path, class: 'btn btn-default navbar-btn' %>
